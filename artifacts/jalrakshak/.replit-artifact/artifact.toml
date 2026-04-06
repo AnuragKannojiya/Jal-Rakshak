@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "JalRakshak"
+version = "1.0.0"
+id = "artifacts/jalrakshak"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19802
+
+[services.development]
+run = "pnpm --filter @workspace/jalrakshak run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/jalrakshak", "run", "build" ]
+publicDir = "artifacts/jalrakshak/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19802"
+BASE_PATH = "/"
