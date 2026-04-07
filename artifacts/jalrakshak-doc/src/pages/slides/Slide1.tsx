@@ -84,7 +84,7 @@ export default function Slide1() {
             </svg>
           </div>
           <div className="font-display font-semibold text-[1.8vw] mb-[1vh] text-center" style={{ color: "#F0F9FF" }}>Clean Water for All</div>
-          <div className="font-body text-[1.4vw] text-center px-[2vw]" style={{ color: "#CBD5E1", lineHeight: "1.5" }}>Transparent civic reporting for every Indian citizen</div>
+          <div className="font-body text-[1.4vw] text-center px-[2vw]" style={{ color: "#94A3B8", lineHeight: "1.5" }}>Transparent civic reporting for every Indian citizen</div>
         </div>
       </div>
     </div>
