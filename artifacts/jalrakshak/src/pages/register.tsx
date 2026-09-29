@@ -44,10 +44,17 @@ export default function Register() {
         toast({ title: "Registration successful" });
         setLocation("/dashboard");
       },
-      onError: () => {
+      onError: (error) => {
+        const serverError = error.data?.error?.toLowerCase() ?? "";
+        const isDuplicateEmail =
+          serverError.includes("already registered") ||
+          serverError.includes("already exists");
+
         toast({
-          title: "Registration failed",
-          description: "Something went wrong. Please try again.",
+          title: isDuplicateEmail ? "Email already registered" : "Registration failed",
+          description: isDuplicateEmail
+            ? "An account with this email already exists. Try signing in instead."
+            : "Something went wrong. Please try again.",
           variant: "destructive",
         });
       },
@@ -76,7 +83,7 @@ export default function Register() {
                   <FormItem>
                     <FormLabel>Full Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="John Doe" {...field} />
+                      <Input placeholder="John Doe" autoComplete="name" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -89,7 +96,7 @@ export default function Register() {
                   <FormItem>
                     <FormLabel>Email Address</FormLabel>
                     <FormControl>
-                      <Input placeholder="john@example.com" type="email" {...field} />
+                      <Input placeholder="john@example.com" type="email" autoComplete="email" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -102,7 +109,7 @@ export default function Register() {
                   <FormItem>
                     <FormLabel>Password</FormLabel>
                     <FormControl>
-                      <Input placeholder="••••••••" type="password" {...field} />
+                      <Input placeholder="••••••••" type="password" autoComplete="new-password" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -115,7 +122,7 @@ export default function Register() {
                   <FormItem>
                     <FormLabel>Phone Number (Optional)</FormLabel>
                     <FormControl>
-                      <Input placeholder="9876543210" {...field} />
+                      <Input placeholder="9876543210" autoComplete="tel" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
