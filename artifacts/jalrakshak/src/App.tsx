@@ -31,7 +31,17 @@ import AdminAlerts from "@/pages/admin/alerts";
 import AdminAnalytics from "@/pages/admin/analytics";
 import AdminUsers from "@/pages/admin/users";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchInterval: 15_000,
+      refetchIntervalInBackground: false,
+      refetchOnReconnect: true,
+      refetchOnWindowFocus: true,
+      staleTime: 0,
+    },
+  },
+});
 
 function Router() {
   return (

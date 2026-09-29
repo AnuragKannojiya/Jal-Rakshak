@@ -12,7 +12,6 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { ArrowLeft, Search, Filter, MoreHorizontal, MapPin, Eye, Edit } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { useQueryClient } from "@tanstack/react-query";
-import { getListComplaintsQueryKey } from "@workspace/api-client-react";
 
 export default function AdminComplaints() {
   const { user } = useAuth();
@@ -50,7 +49,7 @@ export default function AdminComplaints() {
     updateComplaintMutation.mutate({ id, data: { status: newStatus } }, {
       onSuccess: () => {
         toast({ title: `Complaint #${id} updated to ${newStatus}` });
-        queryClient.invalidateQueries({ queryKey: getListComplaintsQueryKey() });
+        queryClient.invalidateQueries();
       },
       onError: (err) => {
         toast({ title: "Failed to update status", description: "Operation failed", variant: "destructive" });

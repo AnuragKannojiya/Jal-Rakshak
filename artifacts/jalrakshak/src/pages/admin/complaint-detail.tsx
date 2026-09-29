@@ -73,7 +73,7 @@ export default function AdminComplaintDetail() {
     updateMutation.mutate({ id, data: dataToSubmit }, {
       onSuccess: () => {
         toast({ title: "Complaint updated successfully" });
-        queryClient.invalidateQueries({ queryKey: getGetComplaintQueryKey(id) });
+        queryClient.invalidateQueries();
       },
       onError: (err) => {
         toast({ title: "Update failed", description: "Operation failed", variant: "destructive" });

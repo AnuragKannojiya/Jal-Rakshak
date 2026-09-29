@@ -11,7 +11,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
 import { useQueryClient } from "@tanstack/react-query";
-import { getListAreasQueryKey } from "@workspace/api-client-react";
 
 export default function AdminAreas() {
   const { user } = useAuth();
@@ -47,7 +46,7 @@ export default function AdminAreas() {
       onSuccess: () => {
         toast({ title: "Area updated successfully" });
         setEditingId(null);
-        queryClient.invalidateQueries({ queryKey: getListAreasQueryKey() });
+        queryClient.invalidateQueries();
       },
       onError: (err) => {
         toast({ title: "Failed to update area", description: "Operation failed", variant: "destructive" });

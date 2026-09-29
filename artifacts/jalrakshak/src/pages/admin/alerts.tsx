@@ -16,7 +16,6 @@ import * as z from "zod";
 import { ArrowLeft, AlertTriangle, Plus, CheckCircle, ShieldAlert, Loader2 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { useQueryClient } from "@tanstack/react-query";
-import { getListAlertsQueryKey } from "@workspace/api-client-react";
 
 const createAlertSchema = z.object({
   title: z.string().min(5, "Title must be at least 5 characters"),
@@ -59,7 +58,7 @@ export default function AdminAlerts() {
         toast({ title: "Alert broadcasted successfully" });
         setIsDialogOpen(false);
         form.reset();
-        queryClient.invalidateQueries({ queryKey: getListAlertsQueryKey() });
+        queryClient.invalidateQueries();
       },
       onError: (err) => {
         toast({ title: "Failed to create alert", description: "Operation failed", variant: "destructive" });
@@ -71,7 +70,7 @@ export default function AdminAlerts() {
     updateAlertMutation.mutate({ id, data: { status: "resolved" } }, {
       onSuccess: () => {
         toast({ title: "Alert resolved" });
-        queryClient.invalidateQueries({ queryKey: getListAlertsQueryKey() });
+        queryClient.invalidateQueries();
       }
     });
   };
