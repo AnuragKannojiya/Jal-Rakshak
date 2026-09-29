@@ -13,6 +13,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const [location, setLocation] = useLocation();
   const logoutMutation = useLogout();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isHome = location === "/";
 
   const handleLogout = () => {
     logoutMutation.mutate(undefined, {
@@ -38,22 +39,22 @@ export function Layout({ children }: { children: React.ReactNode }) {
   ];
 
   return (
-    <div className="min-h-[100dvh] flex flex-col bg-slate-50">
+    <div className={`min-h-[100dvh] flex flex-col ${isHome ? "bg-[#0C1A2E]" : "bg-slate-50"}`}>
       {/* Header */}
-      <header className="sticky top-0 z-40 w-full border-b bg-white shadow-sm">
+      <header className={`sticky top-0 z-40 w-full border-b shadow-sm ${isHome ? "border-white/10 bg-[#0C1A2E]/90 backdrop-blur-xl" : "bg-white"}`}>
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="bg-primary text-white p-1.5 rounded-md group-hover:bg-secondary transition-colors">
+              <div className={`${isHome ? "bg-[#00B4D8] text-[#071525] group-hover:bg-[#7DD3FC]" : "bg-primary text-white group-hover:bg-secondary"} p-1.5 rounded-md transition-colors`}>
                 <Droplets className="h-5 w-5" />
               </div>
-              <span className="font-display font-bold text-xl tracking-tight text-primary">JalRakshak</span>
+              <span className={`font-display font-bold text-xl tracking-tight ${isHome ? "text-[#F0F9FF]" : "text-primary"}`}>JalRakshak</span>
             </Link>
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-1 ml-6">
               {navItems.map((item) => (
-                <Link key={item.href} href={item.href} className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${location === item.href ? "bg-primary/5 text-primary" : "text-slate-600 hover:text-primary hover:bg-slate-100"}`}>
+                <Link key={item.href} href={item.href} className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${location === item.href ? (isHome ? "bg-white/10 text-white" : "bg-primary/5 text-primary") : (isHome ? "text-slate-300 hover:bg-white/10 hover:text-white" : "text-slate-600 hover:text-primary hover:bg-slate-100")}`}>
                   {item.label}
                 </Link>
               ))}
@@ -61,16 +62,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           <div className="flex items-center gap-4">
-            <Button asChild variant="secondary" className="hidden md:flex bg-secondary text-white hover:bg-secondary/90 shadow-sm font-semibold">
+              <Button asChild variant="secondary" className={`hidden md:flex shadow-sm font-semibold ${isHome ? "bg-[#00B4D8] text-[#071525] hover:bg-[#7DD3FC]" : "bg-secondary text-white hover:bg-secondary/90"}`}>
               <Link href="/report">Report Issue</Link>
             </Button>
 
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="relative h-9 w-9 rounded-full">
-                    <Avatar className="h-9 w-9 border border-slate-200">
-                      <AvatarFallback className="bg-primary/10 text-primary font-bold">
+                  <Button variant="ghost" className={`relative h-9 w-9 rounded-full ${isHome ? "hover:bg-white/10" : ""}`}>
+                    <Avatar className={`h-9 w-9 border ${isHome ? "border-white/20" : "border-slate-200"}`}>
+                      <AvatarFallback className={`${isHome ? "bg-[#00B4D8]/20 text-[#7DD3FC]" : "bg-primary/10 text-primary"} font-bold`}>
                         {user.name.substring(0, 2).toUpperCase()}
                       </AvatarFallback>
                     </Avatar>
@@ -103,17 +104,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </DropdownMenu>
             ) : (
               <div className="hidden md:flex items-center gap-2">
-                <Button asChild variant="ghost">
+                <Button asChild variant="ghost" className={isHome ? "text-slate-200 hover:bg-white/10 hover:text-white" : ""}>
                   <Link href="/login">Log in</Link>
                 </Button>
-                <Button asChild>
+                <Button asChild className={isHome ? "bg-[#00B4D8] text-[#071525] hover:bg-[#7DD3FC]" : ""}>
                   <Link href="/register">Sign up</Link>
                 </Button>
               </div>
             )}
 
             {/* Mobile Menu Toggle */}
-            <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <Button variant="ghost" size="icon" className={`md:hidden ${isHome ? "text-white hover:bg-white/10" : ""}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
