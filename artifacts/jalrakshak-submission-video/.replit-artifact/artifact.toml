@@ -1,0 +1,30 @@
+kind = "video"
+previewPath = "/jalrakshak-submission-video/"
+title = "JalRakshak Submission Video"
+description = "A concise 16:9 competition submission film explaining JalRakshak's water conservation problem, civic-tech solution, implementation approach, and measurable impact."
+version = "1.0.0"
+id = "artifacts/jalrakshak-submission-video"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/jalrakshak-submission-video/" ]
+localPort = 20118
+
+[services.development]
+run = "pnpm --filter @workspace/jalrakshak-submission-video run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/jalrakshak-submission-video", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/jalrakshak-submission-video/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20118"
+BASE_PATH = "/jalrakshak-submission-video/"
+
+videoAspectRatio = "16:9"
