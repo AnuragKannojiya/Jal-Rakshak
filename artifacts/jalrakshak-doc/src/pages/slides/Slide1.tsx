@@ -29,14 +29,14 @@ export default function Slide1() {
 
       <div className="absolute top-[6vh] right-[6vw]">
         <span className="font-body text-[1.4vw] font-medium px-[1.2vw] py-[0.6vh] rounded-full" style={{ background: "rgba(0,180,216,0.15)", border: "1px solid rgba(0,180,216,0.3)", color: "#7DD3FC" }}>
-          Government Civic Platform
+          Competition Submission
         </span>
       </div>
 
       <div className="absolute left-[6vw] top-[50%]" style={{ transform: "translateY(-52%)" }}>
         <div className="mb-[2vh]">
           <span className="font-body text-[1.5vw] font-medium tracking-[0.25em] uppercase" style={{ color: "#00B4D8" }}>
-            India's Water Quality Initiative
+            Civic Water Quality
           </span>
         </div>
 
@@ -46,7 +46,7 @@ export default function Slide1() {
         </h1>
 
         <p className="font-body text-[2vw] font-light leading-relaxed mb-[5vh]" style={{ color: "#BAE6FD", maxWidth: "42vw", lineHeight: "1.5" }}>
-          Civic-tech platform for monitoring water quality and resolving public water supply issues — transparently.
+          A civic-tech feedback loop for reporting local water concerns and tracking follow-through.
         </p>
 
         <div className="h-[0.3vh] w-[12vw]" style={{ background: "linear-gradient(90deg, #00B4D8, transparent)" }} />
@@ -55,23 +55,23 @@ export default function Slide1() {
       <div className="absolute bottom-[6vh] left-[6vw] right-[6vw] flex items-end justify-between">
         <div className="flex gap-[4vw]">
           <div>
-            <div className="font-display font-bold text-[3.5vw]" style={{ color: "#F0F9FF" }}>10+</div>
-            <div className="font-body text-[1.4vw]" style={{ color: "#94A3B8" }}>Active Areas</div>
+              <div className="font-display font-bold text-[2.5vw]" style={{ color: "#F0F9FF" }}>Report</div>
+              <div className="font-body text-[1.5vw]" style={{ color: "#94A3B8" }}>with location and evidence</div>
           </div>
           <div className="w-[1px]" style={{ background: "rgba(148,163,184,0.2)", alignSelf: "stretch" }} />
           <div>
-            <div className="font-display font-bold text-[3.5vw]" style={{ color: "#F0F9FF" }}>SDG 6</div>
-            <div className="font-body text-[1.4vw]" style={{ color: "#94A3B8" }}>UN Goal Aligned</div>
+              <div className="font-display font-bold text-[2.5vw]" style={{ color: "#F0F9FF" }}>Route</div>
+              <div className="font-body text-[1.5vw]" style={{ color: "#94A3B8" }}>to a shared area view</div>
           </div>
           <div className="w-[1px]" style={{ background: "rgba(148,163,184,0.2)", alignSelf: "stretch" }} />
           <div>
-            <div className="font-display font-bold text-[3.5vw]" style={{ color: "#F0F9FF" }}>Real-time</div>
-            <div className="font-body text-[1.4vw]" style={{ color: "#94A3B8" }}>Quality Alerts</div>
+              <div className="font-display font-bold text-[2.5vw]" style={{ color: "#F0F9FF" }}>Track</div>
+              <div className="font-body text-[1.5vw]" style={{ color: "#94A3B8" }}>visible status updates</div>
           </div>
         </div>
 
         <div className="font-body text-[1.4vw]" style={{ color: "#475569" }}>
-          April 2026
+          JalRakshak · SDG 6
         </div>
       </div>
 
@@ -83,8 +83,8 @@ export default function Slide1() {
               <path d="M16 30C16 30 18 26 24 26C30 26 32 30 32 30" stroke="#7DD3FC" strokeWidth="2" strokeLinecap="round"/>
             </svg>
           </div>
-          <div className="font-display font-semibold text-[1.8vw] mb-[1vh] text-center" style={{ color: "#F0F9FF" }}>Clean Water for All</div>
-          <div className="font-body text-[1.4vw] text-center px-[2vw]" style={{ color: "#94A3B8", lineHeight: "1.5" }}>Transparent civic reporting for every Indian citizen</div>
+          <div className="font-display font-semibold text-[1.8vw] mb-[1vh] text-center" style={{ color: "#F0F9FF" }}>A clearer civic signal</div>
+          <div className="font-body text-[1.4vw] text-center px-[2vw]" style={{ color: "#94A3B8", lineHeight: "1.5" }}>Local reporting, area visibility, and status tracking</div>
         </div>
       </div>
     </div>
