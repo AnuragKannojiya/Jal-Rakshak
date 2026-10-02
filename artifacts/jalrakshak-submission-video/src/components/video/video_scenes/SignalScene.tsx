@@ -68,8 +68,8 @@ export function SignalScene() {
             <path d="M34 132L112 214L194 132L276 214L358 132L440 214L526 132M34 378L112 296L194 378L276 296L358 378L440 296L526 378" />
           </g>
           <motion.circle cx="278" cy="280" r="52" fill="rgba(0,180,216,.12)" stroke={palette.cyan} strokeWidth="2" animate={{ r: [52, 68, 52], opacity: [0.8, 0.45, 0.8] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }} />
-          <motion.circle cx="278" cy="280" r="104" fill="none" stroke="rgba(0,180,216,.6)" strokeWidth="2" animate={{ r: [98, 154], opacity: [0.7, 0] }} transition={{ duration: 2.8, repeat: Infinity, ease: 'easeOut' }} />
-          <motion.circle cx="278" cy="280" r="168" fill="none" stroke="rgba(0,180,216,.35)" strokeWidth="1.5" animate={{ r: [158, 232], opacity: [0.48, 0] }} transition={{ duration: 3.1, repeat: Infinity, ease: 'easeOut', delay: 0.72 }} />
+          <motion.circle cx="278" cy="280" r="104" fill="none" stroke="rgba(0,180,216,.6)" strokeWidth="2" animate={{ scale: [0.92, 1.35], opacity: [0.7, 0] }} transition={{ duration: 2.8, repeat: Infinity, ease: 'easeOut' }} style={{ transformBox: 'fill-box', transformOrigin: 'center' }} />
+          <motion.circle cx="278" cy="280" r="168" fill="none" stroke="rgba(0,180,216,.35)" strokeWidth="1.5" animate={{ scale: [0.9, 1.32], opacity: [0.48, 0] }} transition={{ duration: 3.1, repeat: Infinity, ease: 'easeOut', delay: 0.72 }} style={{ transformBox: 'fill-box', transformOrigin: 'center' }} />
           <path d="M278 239C257 266 246 279 246 296a32 32 0 0064 0c0-17-11-30-32-57Z" fill="rgba(0,180,216,.75)" stroke="#B9F0FF" strokeWidth="3" />
           <circle cx="278" cy="295" r="7" fill="#F0F9FF" />
         </svg>

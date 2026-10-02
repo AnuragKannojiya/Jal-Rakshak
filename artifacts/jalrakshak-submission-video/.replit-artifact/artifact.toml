@@ -5,6 +5,7 @@ description = "A concise 16:9 competition submission film explaining JalRakshak'
 version = "1.0.0"
 id = "artifacts/jalrakshak-submission-video"
 router = "path"
+videoAspectRatio = "16:9"
 
 [[services]]
 name = "web"
@@ -26,5 +27,3 @@ to = "/index.html"
 [services.env]
 PORT = "20118"
 BASE_PATH = "/jalrakshak-submission-video/"
-
-videoAspectRatio = "16:9"
