@@ -1,0 +1,18 @@
+[
+  {
+    "id": "a1b2c3d4-0001-0001-0001-000000000001",
+    "position": 1,
+    "filepath": "src/pages/slides/Slide1.tsx",
+    "title": "JalRakshak — Overview",
+    "description": "Title slide introducing JalRakshak as India's civic water quality platform with key stats",
+    "speakerNotes": ""
+  },
+  {
+    "id": "a1b2c3d4-0002-0002-0002-000000000002",
+    "position": 2,
+    "filepath": "src/pages/slides/Slide2.tsx",
+    "title": "Features & Impact",
+    "description": "Platform features — complaint reporting, live map, community alerts, admin analytics — plus technical highlights",
+    "speakerNotes": ""
+  }
+]

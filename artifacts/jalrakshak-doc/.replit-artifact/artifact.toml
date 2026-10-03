@@ -1,0 +1,31 @@
+kind = "slides"
+previewPath = "/jalrakshak-doc/"
+title = "JalRakshak Document"
+version = "1.0.0"
+id = "artifacts/jalrakshak-doc"
+router = "path"
+
+[[integratedSkills]]
+name = "slides"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/jalrakshak-doc/" ]
+localPort = 20630
+
+[services.development]
+run = "pnpm --filter @workspace/jalrakshak-doc run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/jalrakshak-doc", "run", "build" ]
+publicDir = "artifacts/jalrakshak-doc/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20630"
+BASE_PATH = "/jalrakshak-doc/"
